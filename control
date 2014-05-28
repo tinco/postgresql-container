@@ -1,13 +1,13 @@
 #!/bin/bash
 
 build() {
-	docker pull paintedfox/postgresql
+	docker pull orchardup/postgresql
 	docker pull tinco/run-command-generator
 }
 
 run() {
 	command=$(docker run -i -a stdin -a stdout tinco/run-command-generator)
-	eval "$command -e USER=\"test\" -e DB=\"db\" -e PASS=\"password\" paintedfox/postgresql"
+	eval "$command orchardup/postgresql"
 }
 
 link() {
