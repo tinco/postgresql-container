@@ -1,5 +1,5 @@
 {
 	"mounts" : {
-		"/data" : "/tmp/postgresql"
+		"/var/lib/postgresql" : "/tmp/postgresql"
 	}
 }
