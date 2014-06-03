@@ -7,7 +7,9 @@ build() {
 
 run() {
 	command=$(docker run -i -a stdin -a stdout tinco/run-command-generator)
-	eval "$command orchardup/postgresql"
+	cid=$(eval "$command orchardup/postgresql")
+	address=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $cid)
+	echo "{\"ID\": \"$cid\", \"IPAddress\": \"$address\"}"
 }
 
 link() {
